@@ -47,12 +47,16 @@ export default class Home extends React.Component{
                     onValueChange={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
                 />
 
-                <Text>hello</Text>
 
                 <ModalDropdown
                     style={styles.dropdown_1}
+                    textStyle={styles.dropdown_1_text}
+                    dropdownStyle={styles.dropdown_1_dropdown}
+                    dropdownTextStyle={styles.dropdown_1_dropdownTextStyle}
                     options={DEMO_OPTIONS_1}
-                    defaultValue="按我">
+                    defaultValue="按我"
+                    showsVerticalScrollIndicator = {false}
+                >
 
                 </ModalDropdown>
             </View>
@@ -67,9 +71,23 @@ const styles = StyleSheet.create({
         height: 26,
     },
     dropdown_1: {
-        top: 32,
+        top: 10,
         left: 8,
-        marginTop: 10,
-        width:100,
+        width: 150,
+    },
+    dropdown_1_text: {
+        fontSize: 14,
+        textAlign: 'center',
+        textAlignVertical: 'center',
+    },
+    dropdown_1_dropdown: {
+        width: 150,
+        height: 200,
+        borderColor: 'lightgray',
+        borderWidth: StyleSheet.hairlineWidth,
+        borderRadius: 4,
+    },
+    dropdown_1_dropdownTextStyle: {
+        color: '#666666'
     },
 });
