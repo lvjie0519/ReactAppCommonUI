@@ -7,8 +7,11 @@ import {
     View,
     Button,
     Image,
-    Text
+    Text,
+    ToastAndroid
 } from 'react-native'
+
+import SegmentedControl from '../lib/component/SegmentedControl';
 
 export default class Home extends React.Component{
 
@@ -23,9 +26,23 @@ export default class Home extends React.Component{
     };
 
     render(){
+
+        let segmentedControlStyle = {
+            selectTextColor:'#ffffff',
+            unSelectTextColor:'#f05b72',
+            borderColor:'#7fb80e',
+            selectSegmentColor:'#a3cf62',
+            unselectSegmentColor:'#ffffff',
+        }
+
         return(
-            <View>
-                <Text>home</Text>
+            <View style={{margin:10}}>
+                <SegmentedControl
+                    selectedIndex={1}
+                    values={['aaaa','bbbb','cccc','dddd']}
+                    //segmentedControlStyle={segmentedControlStyle}
+                    onValueChange={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
+                />
             </View>
         );
     }
