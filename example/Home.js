@@ -8,7 +8,8 @@ import {
     Button,
     Image,
     Text,
-    ToastAndroid
+    ToastAndroid,
+    TouchableOpacity,
 } from 'react-native'
 
 import SegmentedControl from '../lib/component/SegmentedControl';
@@ -27,6 +28,12 @@ export default class Home extends React.Component{
             />
         ),
     };
+
+    constructor(props){
+        super(props);
+
+        this.renderItem = this.renderItem.bind(this);
+    }
 
     render(){
 
@@ -58,13 +65,34 @@ export default class Home extends React.Component{
                     {/*showsVerticalScrollIndicator = {false}*/}
                 {/*/>*/}
 
-                <ModalDropdown
-                    defaultValue='下拉列表'
-                    options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
-                    onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
-                />
+                <View style={{height:50,flexDirection:'row',justifyContent: 'flex-start'}}>
+                    <ModalDropdown
+                        defaultValue='下拉列表-左边'
+                        options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
+                        onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
+                    />
+                    <View style={{flex:1}}></View>
+                    <ModalDropdown
+                        defaultValue='下拉列表-右边'
+                        options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
+                        onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
+                        renderRow={this.renderItem}
+                    />
+                </View>
 
             </View>
+        );
+    }
+
+    renderItem(rowData, rowID, highlighted){
+        return(
+            <TouchableOpacity style={styles.itemstyle}>
+                <Image
+                    style={{width:20, height:20, marginLeft:10}}
+                    source={require('./img/home_unpress.png')}
+                />
+                <Text style={{marginLeft:10}}>{rowData}</Text>
+            </TouchableOpacity>
         );
     }
 
@@ -96,4 +124,10 @@ const styles = StyleSheet.create({
     dropdown_1_dropdownTextStyle: {     //  设置列表中文字的样式
         color: '#666666'
     },
+    itemstyle:{
+        height: 44,
+        flexDirection:'row',
+        justifyContent: 'flex-start',
+        alignItems:'center'
+    }
 });
