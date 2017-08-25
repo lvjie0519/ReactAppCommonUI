@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import {
     StyleSheet,
+    ART,
     View,
     Button,
     Image,
@@ -11,6 +12,8 @@ import {
     ToastAndroid,
     TouchableOpacity,
 } from 'react-native'
+
+const {Surface, Shape, Path} = ART;
 
 import SegmentedControl from '../lib/component/SegmentedControl';
 import ModalDropdown from '../lib/component/ModalDropdown';
@@ -71,7 +74,14 @@ export default class Home extends React.Component{
                         options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
                         onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
                     />
-                    <View style={{flex:1}}></View>
+                    <View style={{flex:1,flexDirection:'row', justifyContent: 'center'}}>
+                        <ModalDropdown
+                            defaultValue='下拉列表-中间'
+                            options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
+                            onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
+                            renderRow={this.renderItem}
+                        />
+                    </View>
                     <ModalDropdown
                         defaultValue='下拉列表-右边'
                         options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
@@ -79,6 +89,13 @@ export default class Home extends React.Component{
                         renderRow={this.renderItem}
                     />
                 </View>
+
+                <View style={{height:50,flexDirection:'row',justifyContent: 'center'}}>
+                    <Triangle
+                        fillColor="#cccccc"
+                    />
+                </View>
+
 
             </View>
         );
@@ -96,6 +113,27 @@ export default class Home extends React.Component{
         );
     }
 
+}
+
+class Triangle extends Component{
+    constructor(props){
+        super(props);
+
+        this.fillColor = this.props.fillColor == null?'#892265':this.props.fillColor;
+    }
+    render(){
+        const path = new Path()
+            .moveTo(0,12)
+            .lineTo(20,12)
+            .lineTo(10,0)
+            .close();
+
+        return(
+            <Surface width={20} height={12}>
+                <Shape d={path} fill={this.fillColor}  />
+            </Surface>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
