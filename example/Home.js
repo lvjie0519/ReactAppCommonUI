@@ -16,7 +16,7 @@ import {
 const {Surface, Shape, Path} = ART;
 
 import SegmentedControl from '../lib/component/SegmentedControl';
-import ModalDropdown from '../lib/component/ModalDropdown';
+import ModalDropdown1 from '../lib/component/ModalDropdown1';
 
 const DEMO_OPTIONS_1 = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5', 'option 6', 'option 7', 'option 8', 'option 9'];
 
@@ -69,20 +69,21 @@ export default class Home extends React.Component{
                 {/*/>*/}
 
                 <View style={{height:50,flexDirection:'row',justifyContent: 'flex-start'}}>
-                    <ModalDropdown
+                    <ModalDropdown1
                         defaultValue='下拉列表-左边'
                         options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
                         onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
+                        dropdownStyle={styles.dropdown_1_dropdown}
                     />
                     <View style={{flex:1,flexDirection:'row', justifyContent: 'center'}}>
-                        <ModalDropdown
+                        <ModalDropdown1
                             defaultValue='下拉列表-中间'
                             options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
                             onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
                             renderRow={this.renderItem}
                         />
                     </View>
-                    <ModalDropdown
+                    <ModalDropdown1
                         defaultValue='下拉列表-右边'
                         options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
                         onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
@@ -91,9 +92,6 @@ export default class Home extends React.Component{
                 </View>
 
                 <View style={{height:50,flexDirection:'row',justifyContent: 'center'}}>
-                    <Triangle
-                        fillColor="#cccccc"
-                    />
                 </View>
 
 
@@ -101,7 +99,7 @@ export default class Home extends React.Component{
         );
     }
 
-    renderItem(rowData, rowID, highlighted){
+    renderItem(rowData, index){
         return(
             <TouchableOpacity style={styles.itemstyle}>
                 <Image
@@ -154,10 +152,6 @@ const styles = StyleSheet.create({
     dropdown_1_dropdown: {      // 设置下拉列表的样式
         width: 150,
         height: 200,
-        borderColor: 'lightgray',
-        borderWidth: StyleSheet.hairlineWidth,
-        borderRadius: 4,
-        backgroundColor: 'lightgray',
     },
     dropdown_1_dropdownTextStyle: {     //  设置列表中文字的样式
         color: '#666666'
