@@ -16,7 +16,7 @@ import {
 const {Surface, Shape, Path} = ART;
 
 import SegmentedControl from '../lib/component/SegmentedControl';
-import ModalDropdown1 from '../lib/component/ModalDropdown1';
+import ModalDropdown from '../lib/component/ModalDropdown';
 
 const DEMO_OPTIONS_1 = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5', 'option 6', 'option 7', 'option 8', 'option 9'];
 
@@ -69,21 +69,22 @@ export default class Home extends React.Component{
                 {/*/>*/}
 
                 <View style={{height:50,flexDirection:'row',justifyContent: 'flex-start'}}>
-                    <ModalDropdown1
+                    <ModalDropdown
                         defaultValue='下拉列表-左边'
                         options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
                         onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
                         dropdownStyle={styles.dropdown_1_dropdown}
+                        dropdownTextStyle={{color: '#666666'}}
                     />
                     <View style={{flex:1,flexDirection:'row', justifyContent: 'center'}}>
-                        <ModalDropdown1
+                        <ModalDropdown
                             defaultValue='下拉列表-中间'
                             options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
                             onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
                             renderRow={this.renderItem}
                         />
                     </View>
-                    <ModalDropdown1
+                    <ModalDropdown
                         defaultValue='下拉列表-右边'
                         options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
                         onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
