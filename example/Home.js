@@ -48,6 +48,29 @@ export default class Home extends React.Component{
             unselectSegmentColor:'#ffffff',
         }
 
+        let options = [
+            {
+                value:'公共微博',
+                icon: require('./img/home_unpress.png')
+            },
+            {
+                value:'我的关注',
+                icon: require('./img/home_unpress.png')
+            },
+            {
+                value:'微博热榜',
+                icon: require('./img/home_unpress.png')
+            },
+            {
+                value:'我的收藏',
+                icon: require('./img/home_unpress.png')
+            },
+            {
+                value:'99U消息',
+                icon: require('./img/home_unpress.png')
+            },
+        ];
+
         return(
             <View style={{margin:10}}>
                 {/*<SegmentedControl*/}
@@ -57,44 +80,29 @@ export default class Home extends React.Component{
                     {/*onValueChange={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}*/}
                 {/*/>*/}
 
-
-                {/*<ModalDropdown*/}
-                    {/*style={styles.dropdown_1}*/}
-                    {/*textStyle={styles.dropdown_1_text}*/}
-                    {/*dropdownStyle={styles.dropdown_1_dropdown}*/}
-                    {/*dropdownTextStyle={styles.dropdown_1_dropdownTextStyle}*/}
-                    {/*options={DEMO_OPTIONS_1}*/}
-                    {/*defaultValue="按我"*/}
-                    {/*showsVerticalScrollIndicator = {false}*/}
-                {/*/>*/}
-
                 <View style={{height:50,flexDirection:'row',justifyContent: 'flex-start'}}>
                     <ModalDropdown
-                        options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
-                        onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
-                        dropdownStyle={styles.dropdownStyle}
+                        options={options}
+                        onSelect={(index, option)=>{ToastAndroid.show('index='+index+'  option='+option.value, ToastAndroid.SHORT)}}
                     >
                         <Text>下拉列表-左边</Text>
                     </ModalDropdown>
                     <View style={{flex:1,flexDirection:'row', justifyContent: 'center'}}>
                         <ModalDropdown
-                            options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
-                            onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
-                            renderRow={this.renderItem}
+                            options={options}
+                            onSelect={(index, option)=>{ToastAndroid.show('index='+index+'  option='+option.value, ToastAndroid.SHORT)}}
+                            //renderRow={this.renderItem}
                         >
                             <Text>下拉列表-中间</Text>
                         </ModalDropdown>
                     </View>
                     <ModalDropdown
-                        options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
-                        onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
-                        renderRow={this.renderItem}
+                        options={options}
+                        onSelect={(index, option)=>{ToastAndroid.show('index='+index+'  option='+option.value, ToastAndroid.SHORT)}}
+                        //renderRow={this.renderItem}
                     >
                         <Text>下拉列表-右边</Text>
                     </ModalDropdown>
-                </View>
-
-                <View style={{height:50,flexDirection:'row',justifyContent: 'center'}}>
                 </View>
 
 
@@ -109,7 +117,7 @@ export default class Home extends React.Component{
                     style={{width:20, height:20, marginLeft:10}}
                     source={require('./img/home_unpress.png')}
                 />
-                <Text style={{marginLeft:10}}>{rowData}</Text>
+                <Text style={{marginLeft:10}}>{rowData.value}</Text>
             </TouchableOpacity>
         );
     }
