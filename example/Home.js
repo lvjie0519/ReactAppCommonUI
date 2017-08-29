@@ -51,23 +51,23 @@ export default class Home extends React.Component{
         let options = [
             {
                 value:'公共微博',
-                icon: require('./img/home_unpress.png')
+                // icon: require('./img/home_unpress.png')
             },
             {
                 value:'我的关注',
-                icon: require('./img/home_unpress.png')
+                // icon: require('./img/home_unpress.png')
             },
             {
                 value:'微博热榜',
-                icon: require('./img/home_unpress.png')
+                // icon: require('./img/home_unpress.png')
             },
             {
                 value:'我的收藏',
-                icon: require('./img/home_unpress.png')
+                // icon: require('./img/home_unpress.png')
             },
             {
                 value:'99U消息',
-                icon: require('./img/home_unpress.png')
+                // icon: require('./img/home_unpress.png')
             },
         ];
 
