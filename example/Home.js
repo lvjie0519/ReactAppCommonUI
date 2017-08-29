@@ -50,12 +50,12 @@ export default class Home extends React.Component{
 
         return(
             <View style={{margin:10}}>
-                <SegmentedControl
-                    selectedIndex={1}
-                    values={['aaaa','bbbb','cccc','dddd']}
-                    //segmentedControlStyle={segmentedControlStyle}
-                    onValueChange={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
-                />
+                {/*<SegmentedControl*/}
+                    {/*selectedIndex={1}*/}
+                    {/*values={['aaaa','bbbb','cccc','dddd']}*/}
+                    {/*//segmentedControlStyle={segmentedControlStyle}*/}
+                    {/*onValueChange={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}*/}
+                {/*/>*/}
 
 
                 {/*<ModalDropdown*/}
@@ -70,26 +70,28 @@ export default class Home extends React.Component{
 
                 <View style={{height:50,flexDirection:'row',justifyContent: 'flex-start'}}>
                     <ModalDropdown
-                        defaultValue='下拉列表-左边'
                         options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
                         onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
-                        dropdownStyle={styles.dropdown_1_dropdown}
-                        dropdownTextStyle={{color: '#666666'}}
-                    />
+                        dropdownStyle={styles.dropdownStyle}
+                    >
+                        <Text>下拉列表-左边</Text>
+                    </ModalDropdown>
                     <View style={{flex:1,flexDirection:'row', justifyContent: 'center'}}>
                         <ModalDropdown
-                            defaultValue='下拉列表-中间'
                             options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
                             onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
                             renderRow={this.renderItem}
-                        />
+                        >
+                            <Text>下拉列表-中间</Text>
+                        </ModalDropdown>
                     </View>
                     <ModalDropdown
-                        defaultValue='下拉列表-右边'
                         options={['公共微博','我的关注','微博热榜','我的收藏','99U消息']}
                         onSelect={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
                         renderRow={this.renderItem}
-                    />
+                    >
+                        <Text>下拉列表-右边</Text>
+                    </ModalDropdown>
                 </View>
 
                 <View style={{height:50,flexDirection:'row',justifyContent: 'center'}}>
@@ -150,7 +152,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         textAlignVertical: 'center',
     },
-    dropdown_1_dropdown: {      // 设置下拉列表的样式
+    dropdownStyle: {      // 设置下拉列表的样式
         width: 150,
         height: 200,
         backgroundColor: '#cccccc'
