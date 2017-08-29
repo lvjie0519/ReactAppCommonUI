@@ -153,6 +153,7 @@ const styles = StyleSheet.create({
     dropdown_1_dropdown: {      // 设置下拉列表的样式
         width: 150,
         height: 200,
+        backgroundColor: '#cccccc'
     },
     dropdown_1_dropdownTextStyle: {     //  设置列表中文字的样式
         color: '#666666'
