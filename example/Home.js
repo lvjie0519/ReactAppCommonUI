@@ -80,6 +80,8 @@ export default class Home extends React.Component{
                     {/*onValueChange={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}*/}
                 {/*/>*/}
 
+                <View style={{height: 500}}></View>
+
                 <View style={{height:50,flexDirection:'row',justifyContent: 'flex-start'}}>
                     <ModalDropdown
                         options={options}
