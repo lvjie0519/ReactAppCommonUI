@@ -36,6 +36,7 @@ export default class Home extends React.Component{
         super(props);
 
         this.renderItem = this.renderItem.bind(this);
+        this.goNextPage = this.goNextPage.bind(this);
     }
 
     render(){
@@ -73,14 +74,12 @@ export default class Home extends React.Component{
 
         return(
             <View style={{margin:10}}>
-                {/*<SegmentedControl*/}
-                    {/*selectedIndex={1}*/}
-                    {/*values={['aaaa','bbbb','cccc','dddd']}*/}
-                    {/*//segmentedControlStyle={segmentedControlStyle}*/}
-                    {/*onValueChange={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}*/}
-                {/*/>*/}
-
-                <View style={{height: 500}}></View>
+                <SegmentedControl
+                    selectedIndex={1}
+                    values={['aaaa','bbbb','cccc','dddd']}
+                    //segmentedControlStyle={segmentedControlStyle}
+                    onValueChange={(index, value)=>{ToastAndroid.show('index='+index+'  value='+value, ToastAndroid.SHORT)}}
+                />
 
                 <View style={{height:50,flexDirection:'row',justifyContent: 'flex-start'}}>
                     <ModalDropdown
@@ -107,9 +106,19 @@ export default class Home extends React.Component{
                     </ModalDropdown>
                 </View>
 
+                <TouchableOpacity onPress={this.goNextPage}>
+                    <Text>Navigation 测试</Text>
+                </TouchableOpacity>
+
 
             </View>
         );
+    }
+
+    goNextPage(){
+        const {navigate} = this.props.navigation;
+        navigate('NavPage1',{
+        });
     }
 
     renderItem(rowData, index){
