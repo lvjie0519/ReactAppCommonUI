@@ -95,7 +95,6 @@ export default class Home extends React.Component{
                             renderRow={this.renderItem}
                         >
                             <Text>下拉列表-中间</Text>
-
                         </ModalDropdown>
                     </View>
                     <ModalDropdown
