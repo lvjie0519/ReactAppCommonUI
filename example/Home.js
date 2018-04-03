@@ -92,7 +92,7 @@ export default class Home extends React.Component{
                         <ModalDropdown
                             options={options}
                             onSelect={(index, option)=>{ToastAndroid.show('index='+index+'  option='+option.value, ToastAndroid.SHORT)}}
-                            //renderRow={this.renderItem}
+                            renderRow={this.renderItem}
                         >
                             <Text>下拉列表-中间</Text>
                         </ModalDropdown>
